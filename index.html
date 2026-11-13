@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Catch the Fish!</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="game">
+  <div id="hud">
+    <div class="box"><small>Score</small><b id="score">0</b></div>
+    <div class="box"><small>Best</small><b id="best">0</b></div>
+    <div class="box"><small>Lives</small><span id="lives">❤️❤️❤️</span></div>
+    <div class="box"><small>Time</small><b id="time">60</b></div>
+  </div>
+
+  <div id="wrap">
+    <canvas id="canvas"></canvas>
+
+    <div id="startScreen" class="overlay">
+      <div class="big">🐱🐟</div>
+      <h1>Catch the Fish!</h1>
+      <p>Move the cat with <b>← →</b> or <b>A / D</b>.<br>On phones, drag the cat with your finger.<br>
+      Catch 🐟 for points. Avoid 🥫 trash!<br>You have 3 lives and 60 seconds.</p>
+      <button id="startBtn">Start Game</button>
+    </div>
+
+    <div id="pauseScreen" class="overlay hidden">
+      <h1>Paused ⏸️</h1>
+      <button id="resumeBtn">Resume</button>
+    </div>
+
+    <div id="endScreen" class="overlay hidden">
+      <h1 id="endTitle">Game Over</h1>
+      <p id="endReason"></p>
+      <p>Final score: <b id="finalScore" style="font-size:28px">0</b></p>
+      <p id="newBest"></p>
+      <button id="againBtn">Play Again</button>
+    </div>
+  </div>
+
+  <div id="controls">
+    <button id="pauseBtn" disabled>Pause</button>
+    <button id="restartBtn" disabled>Restart</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

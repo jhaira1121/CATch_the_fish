@@ -1,0 +1,55 @@
+  :root {
+    --ink: #0b3d5c;
+    --panel: #ffffff;
+    --accent: #ff7aa8;
+    --accent-dark: #e0457f;
+    --bg1: #bfeaff;
+    --bg2: #5ec2f2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg1: #0f4a73; --bg2: #072b47; }
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    font-family: "Trebuchet MS", "Comic Sans MS", Arial, sans-serif;
+    background: linear-gradient(var(--bg1), var(--bg2));
+    color: var(--ink);
+    display: flex; justify-content: center;
+    padding: env(safe-area-inset-top, 0px) 8px env(safe-area-inset-bottom, 0px);
+    touch-action: none;
+  }
+  #game { width: 100%; max-width: 480px; display: flex; flex-direction: column; gap: 8px; padding: 8px 0; height: 100%; }
+
+  /* Top bar */
+  #hud { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .box { background: var(--panel); border-radius: 12px; padding: 6px 4px; text-align: center; box-shadow: 0 3px 0 rgba(0,0,0,.15); }
+  .box small { display: block; font-size: 11px; color: #5b7f96; text-transform: uppercase; letter-spacing: .5px; }
+  .box b { font-size: 18px; }
+  #lives { font-size: 16px; letter-spacing: 1px; }
+
+  /* Game area */
+  #wrap { position: relative; flex: 1; min-height: 0; border-radius: 16px; overflow: hidden; border: 4px solid #fff; box-shadow: 0 4px 0 rgba(0,0,0,.2); }
+  canvas { display: block; width: 100%; height: 100%; }
+
+  /* Screens on top of the game */
+  .overlay {
+    position: absolute; inset: 0; background: rgba(8, 50, 80, .72);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; color: #fff; padding: 16px; gap: 10px;
+  }
+  .overlay.hidden { display: none; }
+  .overlay h1 { margin: 0; font-size: 32px; text-shadow: 0 3px 0 rgba(0,0,0,.25); }
+  .overlay p { margin: 0; font-size: 15px; line-height: 1.5; }
+  .big { font-size: 56px; line-height: 1; }
+
+  /* Buttons */
+  button {
+    font: inherit; font-weight: bold; font-size: 16px; color: #fff; cursor: pointer;
+    background: var(--accent); border: 0; border-radius: 999px; padding: 10px 22px;
+    box-shadow: 0 4px 0 var(--accent-dark); transition: transform .1s;
+  }
+  button:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--accent-dark); }
+  #controls { display: flex; gap: 8px; justify-content: center; }
+  #controls button { padding: 8px 18px; font-size: 14px; background: #2f9be0; box-shadow: 0 4px 0 #1b6fa8; }
+  #controls button:disabled { opacity: .5; }
